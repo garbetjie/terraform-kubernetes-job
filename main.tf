@@ -37,11 +37,11 @@ resource kubernetes_job job {
           args = var.args
 
           resources {
-            limits {
+            limits = {
               memory = "${var.memory}Mi"
             }
-            requests {
-              cpu = var.cpu
+            requests = {
+              cpu = "${var.cpu * 1000}m"
             }
           }
 
